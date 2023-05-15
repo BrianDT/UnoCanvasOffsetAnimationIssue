@@ -1,0 +1,10 @@
+{
+  "profiles": {
+	"UnoCanvasOffsetAnimationIssue.Windows (Package)": {
+	  "commandName": "MsixPackage"
+	},
+	"UnoCanvasOffsetAnimationIssue.Windows (Unpackaged)": {
+	  "commandName": "Project"
+	}
+  }
+}
