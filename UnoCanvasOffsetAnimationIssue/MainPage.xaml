@@ -8,26 +8,38 @@
 	Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Page.Resources>
         <Storyboard x:Name="SimpleStoryboard">
-            <DoubleAnimation Storyboard.TargetName="Thing" 
+            <DoubleAnimation Storyboard.TargetName="Thing"
                              Storyboard.TargetProperty="(Canvas.Top)"
                              From="{x:Bind VM.Y, Mode=OneWay}" To="20.0" Duration="0:0:5"/>
+            <!--EnableDependentAnimation="true"-->
         </Storyboard>
     </Page.Resources>
 
-    <Grid SizeChanged="Grid_SizeChanged">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
+        <StackPanel x:Name="ButtonRow" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="Simple" Margin="30" Content="XAML animation" Click="Start_Click" Visibility="Visible" />
         </StackPanel>
 
-        <Canvas x:Name="Map" Grid.Row="1">
+        <Canvas x:Name="Map" Grid.Row="1" SizeChanged="Map_SizeChanged">
             <Canvas x:Name="Thing" Canvas.Left="{x:Bind VM.X, Mode=OneWay}" Canvas.Top="{x:Bind VM.Y, Mode=OneWay}">
                 <Ellipse Canvas.Left="-5" Canvas.Top="-5"
                          Width="10" Height="10" Fill="Red" />
             </Canvas>
         </Canvas>
+
+        <StackPanel x:Name="CoordRow" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="24">
+            <TextBlock>
+                <Run Text="Widget co-ordinates: (" />
+                <Run Text="{x:Bind VM.AsString(VM.X), Mode=OneWay}" />
+                <Run Text=" ,"/>
+                <Run Text="{x:Bind VM.AsString(VM.Y), Mode=OneWay}" />
+                <Run Text=")" />
+            </TextBlock>
+        </StackPanel>
     </Grid>
 </Page>

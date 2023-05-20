@@ -52,9 +52,9 @@ namespace UnoCanvasOffsetAnimationIssue
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Grid_SizeChanged(object sender, SizeChangedEventArgs e)
+        private void Map_SizeChanged(object sender, SizeChangedEventArgs e)
         {
-            this.VM.OnSizeChanged(this.Map.ActualWidth, this.Map.ActualHeight);
+            this.VM.OnSizeChanged(e.NewSize.Width, e.NewSize.Height);
         }
 
         private void Start_Click(object sender, RoutedEventArgs e)

@@ -133,6 +133,16 @@
         }
 
         /// <summary>
+        /// Formats a co-ordinate
+        /// </summary>
+        /// <param name="coord">The input value</param>
+        /// <returns></returns>
+        public string AsString(double coord)
+        {
+            return String.Format("{0:0.#}", coord);
+        }
+
+        /// <summary>
         /// Called when a non zero canvas size has been set on or after page load.
         /// </summary>
         /// <param name="actualWidth">The actual width of the canvas</param>
