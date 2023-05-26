@@ -60,7 +60,18 @@ namespace UnoCanvasOffsetAnimationIssue
         private void Start_Click(object sender, RoutedEventArgs e)
         {
             this.Simple.IsEnabled = false;
+            this.Simple2.IsEnabled = false;
             this.SimpleStoryboard.Begin();
         }
+
+        private void Start2_Click(object sender, RoutedEventArgs e)
+        {
+            this.AltThing.Visibility = Visibility.Visible;
+            this.Thing.Visibility = Visibility.Collapsed;
+            this.Simple.IsEnabled = false;
+            this.Simple2.IsEnabled = false;
+            this.Simple2Storyboard.Begin();
+        }
+
     }
 }

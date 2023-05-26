@@ -13,6 +13,12 @@
                              From="{x:Bind VM.Y, Mode=OneWay}" To="20.0" Duration="0:0:5"/>
             <!--EnableDependentAnimation="true"-->
         </Storyboard>
+        <Storyboard x:Name="Simple2Storyboard">
+            <DoubleAnimation Storyboard.TargetName="AltThing"
+                             Storyboard.TargetProperty="(RenderTransform).(TranslateTransform.Y)"
+                             From="{x:Bind VM.Y, Mode=OneWay}" To="20.0" Duration="0:0:5"/>
+            <!--EnableDependentAnimation="true"-->
+        </Storyboard>
     </Page.Resources>
 
     <Grid>
@@ -22,7 +28,8 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <StackPanel x:Name="ButtonRow" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="Simple" Margin="30" Content="XAML animation" Click="Start_Click" Visibility="Visible" />
+            <Button x:Name="Simple" Margin="30" Content="XAML Canvas animation" Click="Start_Click" Visibility="Visible" />
+            <Button x:Name="Simple2" Margin="30" Content="XAML Transform animation" Click="Start2_Click" Visibility="Visible" />
         </StackPanel>
 
         <Canvas x:Name="Map" Grid.Row="1" SizeChanged="Map_SizeChanged">
@@ -30,6 +37,16 @@
                 <Ellipse Canvas.Left="-5" Canvas.Top="-5"
                          Width="10" Height="10" Fill="Red" />
             </Canvas>
+
+            <Canvas x:Name="AltThing" Visibility="Collapsed">
+                <Canvas.RenderTransform>
+                    <TranslateTransform X="{x:Bind VM.X, Mode=OneWay}" Y="{x:Bind VM.Y, Mode=OneWay}" />
+                </Canvas.RenderTransform>
+
+                <Ellipse Canvas.Left="-5" Canvas.Top="-5"
+                         Width="10" Height="10" Fill="Red" />
+            </Canvas>
+
         </Canvas>
 
         <StackPanel x:Name="CoordRow" Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="24">
